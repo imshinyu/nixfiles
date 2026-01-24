@@ -2,43 +2,43 @@
   description = "A simple NixOS flake";
 
   inputs = {
-    # NixOS official package source, using the nixos-25.05 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    awww.url = "git+https://codeberg.org/LGFae/awww";
+    helix.url = "github:helix-editor/helix/master";
+    xboxdrv.url = "github:xboxdrv/xboxdrv";
+    niri.url = "github:Naxdy/niri";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    mango = {
+      url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+    qtengine = {
+      url = "github:kossLAN/qtengine";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     };
-    matugen = {
-      url = "github:/InioX/Matugen"; 
-      inputs.nixpkgs.follows = "nixpkgs";
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     };
     # millennium = {
      # url = "git+https://github.com/SteamClientHomebrew/Millennium?ref=next";
     # };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.sapphire = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
       };
       modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        #./configuration.nix
-	./hosts/sapphire/default.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.shinyu = import ./home/default.nix;
-        }
-        (import ./overlays)
+        ./modules/hosts/sapphire/default.nix
+        inputs.hjem.nixosModules.default
+        inputs.qtengine.nixosModules.default
+        inputs.niri.nixosModules.default
+        inputs.mango.nixosModules.mango
+        inputs.spicetify-nix.nixosModules.spicetify
       ];
     };
   };
