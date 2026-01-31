@@ -39,17 +39,17 @@
   fileSystems."/mnt/windows" =
     { device = "/dev/disk/by-label/Windows";
       fsType = "ntfs-3g";
-      options = [ "rw" "allow_other" "uid=1000" "gid=100" "nofail" "exec" "user" "umask=000" "0" "0"];
+      options = [ "rw" "allow_other" "uid=1000" "gid=100" "nofail" "exec" "x-gvfs-show" "user" "umask=000" "0" "0"];
     };
   fileSystems."/mnt/xraydisk" =
     { device = "/dev/disk/by-label/XrayDisk";
       fsType = "btrfs";
-      options = [ "rw" "nofail" "noatime" "compress=zstd:3" "space_cache=v2"];
+      options = [ "rw" "nofail" "noatime" "compress=zstd:3" "space_cache=v2" "x-gvfs-show" ];
     };
   fileSystems."/mnt/hdd" =
     { device = "/dev/disk/by-label/HDD";
       fsType = "btrfs";
-      options = [ "rw" "nofail" "noatime" "compress=zstd:3" "ssd" "discard=async" "space_cache=v2"];
+      options = [ "rw" "nofail" "noatime" "compress=zstd:3" "ssd" "x-gvfs-show" "discard=async" "space_cache=v2"];
     };
 
 

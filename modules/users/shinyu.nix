@@ -22,21 +22,21 @@
           style = "Darkly";
     
           font = {
-            family = "Iosevka";
-            size = 11;
+            family = "Nunito";
+            size = 12;
             weight = -1;
           };
     
           fontFixed = {
-            family = "Iosevka Fixed";
+            family = "Noto Sans";
             size = 11;
             weight = -1;
           };
         };
         misc = {
           singleClickActivate = false;
-          menusHaveIcons = true;
-          shortcutsForContextMenus = true;
+          menusHaveIcons = false;
+          shortcutsForContextMenus = false;
         };
       };
     };

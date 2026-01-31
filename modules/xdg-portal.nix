@@ -1,6 +1,26 @@
 { config, pkgs, inputs, ... }:
 {
-  xdg.portal.enable = true;
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "firefox.desktop";
+      "image/png" = "gwenview.desktop";
+      "video/mp4" = "vlc.desktop";
+      "x-scheme-handler/discord" = "discord.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+    };
+  };
+  xdg.portal = {
+    enable = true;
+    # xdgOpenUsePortal = true;
+    wlr.enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      kdePackages.xdg-desktop-portal-kde
+    ];
+  };
   xdg.portal.config = {
     common = {
       default = [
@@ -12,12 +32,12 @@
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "kde"
+        "lxqt"
       ];
     };
     niri = {
       default = [
-        "gtk"
+        "wlr;gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
         "kde"

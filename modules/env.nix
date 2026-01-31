@@ -18,4 +18,7 @@
       "${XDG_BIN_HOME}"
     ];
   };
+  environment.variables = {
+    ROC_ENABLE_PRE_VEGA = "1";
+  };
 }

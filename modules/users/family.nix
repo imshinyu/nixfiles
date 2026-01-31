@@ -7,7 +7,6 @@
     shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "users"];
     packages = with pkgs; [
-      wayfirePlugins.wcm
     ];
   };
   hjem.users.family = {
