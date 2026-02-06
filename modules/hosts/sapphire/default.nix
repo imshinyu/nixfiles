@@ -15,6 +15,7 @@
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.timeout = 3;
   boot.plymouth.enable = true;
   boot.kernelParams = [ "quiet" "udev.log_level=3" ];

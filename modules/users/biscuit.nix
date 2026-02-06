@@ -13,32 +13,5 @@
   hjem.users.biscuit = {
     user = "biscuit";
     directory = "/home/biscuit";
-    programs.qtengine = {
-      enable = true;
-      config = {
-        theme = {
-          colorScheme = "~/.local/share/color-schemes/Matugen.colors";
-          iconTheme = "Papirus-Dark";
-          style = "Darkly";
-    
-          font = {
-            family = "Iosevka";
-            size = 11;
-            weight = -1;
-          };
-    
-          fontFixed = {
-            family = "Iosevka Fixed";
-            size = 11;
-            weight = -1;
-          };
-        };
-        misc = {
-          singleClickActivate = false;
-          menusHaveIcons = true;
-          shortcutsForContextMenus = true;
-        };
-      };
-    };
   };
 }

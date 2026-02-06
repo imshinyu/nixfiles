@@ -9,8 +9,11 @@
     xboxdrv.url = "github:xboxdrv/xboxdrv";
     niri.url = "github:Naxdy/niri";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     nixcord.url = "github:FlameFlag/nixcord";
+    elysia = {
+      url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     apple-emoji = {
       url ="github:samuelngs/apple-emoji-linux";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -41,8 +44,28 @@
         inputs.niri.nixosModules.default
         inputs.mango.nixosModules.mango
         inputs.nixcord.nixosModules.nixcord
-        inputs.spicetify-nix.nixosModules.spicetify
       ];
     };
+    # nixosConfigurations.ruby = nixpkgs.lib.nixosSystem {
+    #   specialArgs = {
+    #     inherit inputs;
+    #   };
+    #   modules = [
+    #     ./modules/hosts/ruby/default.nix
+    #     inputs.hjem.nixosModules.default
+    #     inputs.qtengine.nixosModules.default
+    #     inputs.mango.nixosModules.mango
+    #     inputs.nixcord.nixosModules.nixcord
+    #     inputs.spicetify-nix.nixosModules.spicetify
+    #   ];
+    # };
+    # nixosConfigurations.onyx = nixpkgs.lib.nixosSystem {
+    #   specialArgs = {
+    #     inherit inputs;
+    #   };
+    #   modules = [
+    #     ./modules/hosts/onyx/default.nix
+    #   ];
+    # };
   };
 }

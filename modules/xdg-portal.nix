@@ -1,17 +1,5 @@
 { config, pkgs, inputs, ... }:
 {
-  xdg.mime = {
-    enable = true;
-    defaultApplications = {
-      "application/pdf" = "firefox.desktop";
-      "image/png" = "gwenview.desktop";
-      "video/mp4" = "vlc.desktop";
-      "x-scheme-handler/discord" = "discord.desktop";
-      "x-scheme-handler/http" = "firefox.desktop";
-      "x-scheme-handler/https" = "firefox.desktop";
-      "text/html" = "firefox.desktop";
-    };
-  };
   xdg.portal = {
     enable = true;
     # xdgOpenUsePortal = true;
@@ -26,13 +14,16 @@
       default = [
         "gtk"
       ];
+      "org.freedesktop.impl.portal.FileChooser" = [
+        "kde"
+      ];
     };
     mango = {
       default = [
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "lxqt"
+        "kde"
       ];
     };
     niri = {

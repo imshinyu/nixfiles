@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ nfig, lib, pkgs, inputs, ... }:
 let
   pkgsUnstable = import inputs.nixpkgs-unstable {
     system = "x86_64-linux";
@@ -8,11 +8,11 @@ in
 {
   imports = [
     ./nixcord.nix
-    ./spicetify.nix
     ./steam.nix
     ./appimage.nix
   ];
   nixpkgs.config.allowUnfree = true;
+  services.transmission.enable = true;
   programs.adb.enable = true;
   programs.xwayland.enable = true;
   programs.gamemode.enable = true;
@@ -21,23 +21,28 @@ in
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
     vlc
+    jellyfin-rpc
+    selectdefaultapplication
+    fzf
+    feishin
     rmpc
     evtest
     pkgsUnstable.seanime
     hyprlock
+    hyprshot
+    hyprpicker
     waytrogen
     onlyoffice-desktopeditors
     osu-lazer-bin
-    kdePackages.qtdeclarative
     lua-language-server
     appimage-run # run appimage
     ntfs3g
+    spicetify-cli
     xdg-user-dirs
     python3
     grim #screenshot tool
     slurp #select region
     copyq
-    gnome-keyring #secrets
     tree
     pywalfox-native
     wayfreeze #freeze screen
@@ -53,7 +58,6 @@ in
     mangohud
     xwayland-satellite
     playerctl #player control
-    wf-recorder
     ffmpeg
     wlsunset #gamma modifier
     upscayl #upscale photos
@@ -82,31 +86,42 @@ in
     btop
     fastfetch
     adw-gtk3
+    inputs.elysia.packages.x86_64-linux.default
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
     inputs.xboxdrv.packages.${pkgs.stdenv.hostPlatform.system}.xboxdrv
     wf-recorder
     zip
     rar
-    hyprpicker
     mako
     protonup-qt
     heroic
     git
-    kitty
+    foot
     quickshell
     yazi
+    felix-fm
     rofi
     pcsx2
     youtube-music
     tsukimi
     trashy
-    pwvucontrol
-    # lxqt.pavucontrol-qt #volume control
+    lxqt.pavucontrol-qt #volume control
+    nemo
+    xfce.thunar
+
     gnome-system-monitor
     gnome-calculator
+    gnome-software
+    gnome-keyring #secrets
+    loupe
+    lollypop
+    nautilus
+
     kdePackages.partitionmanager
     kdePackages.okular
     kdePackages.dolphin
+    kdePackages.qtdeclarative
   ];
 }

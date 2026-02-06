@@ -12,32 +12,5 @@
   hjem.users.family = {
     user = "family";
     directory = "/home/family";
-    programs.qtengine = {
-      enable = true;
-      config = {
-        theme = {
-          colorScheme = "~/.local/share/color-schemes/Matugen.colors";
-          iconTheme = "Papirus-Dark";
-          style = "Darkly";
-    
-          font = {
-            family = "Noto Sans";
-            size = 11;
-            weight = -1;
-          };
-    
-          fontFixed = {
-            family = "Noto Sans";
-            size = 11;
-            weight = -1;
-          };
-        };
-        misc = {
-          singleClickActivate = false;
-          menusHaveIcons = true;
-          shortcutsForContextMenus = true;
-        };
-      };
-    };
   };
 }

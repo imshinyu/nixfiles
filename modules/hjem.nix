@@ -7,7 +7,6 @@
   ];
   hjem = {
     extraModules = [
-      inputs.qtengine.hjemModules.default
     ];
   };
 }

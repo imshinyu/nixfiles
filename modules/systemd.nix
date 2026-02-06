@@ -15,28 +15,6 @@
       RemainAfterExit = "true";
     };
   };
-  systemd.user.services.mango-reload = {
-    description = "Reload Mango Window Manager";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${inputs.mango.packages.${pkgs.system}.default}/bin/mmsg -d reload_config";
-    };
-  };
-  systemd.user.paths.mango-reload = {
-    description = "Watch Mango config file for changes";
-    pathConfig = {
-      # Provide a list of absolute paths to monitor
-      PathChanged = [
-        "%h/.config/mango/config.conf"
-        "%h/.config/mango/colors.conf"
-        "%h/.config/mango/env.conf"
-        "%h/.config/mango/keybinds.conf"
-        "%h/.config/mango/rules.conf"
-        "%h/.config/mango/shinyu.conf"
-      ];
-    };
-    wantedBy = ["multi-user.target"];
-  };
   systemd.services.lact = {
     description = "AMDGPU Control Daemon";
     after = ["multi-user.target"];

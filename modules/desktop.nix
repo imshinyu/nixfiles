@@ -26,6 +26,7 @@
   # services.xserver.desktopManager.xfce.waylandSessionCompositor = "wayfire";
 
   services.desktopManager.cosmic.enable = true;
+  services.desktopManager.cosmic.showExcludedPkgsWarning = false;
   environment.cosmic.excludePackages = with pkgs; [
     cosmic-edit
     cosmic-term
