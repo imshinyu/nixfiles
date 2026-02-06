@@ -14,10 +14,10 @@
       url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-emoji = {
-      url ="github:samuelngs/apple-emoji-linux";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # apple-emoji = {
+    #   url ="github:samuelngs/apple-emoji-linux";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
     mango = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";

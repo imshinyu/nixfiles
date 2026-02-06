@@ -15,9 +15,9 @@
     liberation_ttf
     googlesans-code
     texlivePackages.nunito
-    inputs.apple-emoji.packages.${system}.apple-emoji-linux
+    # inputs.apple-emoji.packages.${system}.apple-emoji-linux
   ];
-  fonts.fontconfig.defaultFonts.emoji = with pkgs; [
-    "Apple Color Emoji"
-  ];
+  # fonts.fontconfig.defaultFonts.emoji = with pkgs; [
+  #   "Apple Color Emoji"
+  # ];
 }

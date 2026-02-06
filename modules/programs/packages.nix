@@ -20,6 +20,7 @@ in
   programs.fish.enable = true;
   programs.firefox.enable = true;
   environment.systemPackages = with pkgs; [
+    mumble
     vlc
     jellyfin-rpc
     selectdefaultapplication
