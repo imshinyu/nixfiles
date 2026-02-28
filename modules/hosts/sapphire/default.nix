@@ -13,7 +13,11 @@
       ../../programs/packages.nix
     ];
   nixpkgs.overlays = [ inputs.millennium.overlays.default ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://ezkea.cachix.org" ];
+    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+  };
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.timeout = 3;
@@ -153,7 +157,7 @@
     enable = true;
     bandwidth = 540000;
     bonjour = true;
-    password = "choose_your_own_password";
+    password = "password";
     autobanTime = 0;
   };
   # Open ports in the firewall.

@@ -4,8 +4,10 @@
     enable = true;
     # xdgOpenUsePortal = true;
     wlr.enable = true;
+    lxqt.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
       kdePackages.xdg-desktop-portal-kde
     ];
   };
@@ -15,7 +17,7 @@
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "kde"
+        "nautilus"
       ];
     };
     mango = {
@@ -23,15 +25,15 @@
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "kde"
+        "nautilus"
       ];
     };
     niri = {
       default = [
-        "wlr;gtk"
+        "gnome"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "kde"
+        "nautilus"
       ];
     };
   };

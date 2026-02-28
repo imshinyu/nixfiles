@@ -10,6 +10,7 @@
      # thunderbird
     ];
   };
+  security.pam.services.biscuit.kwallet.enable = true;
   hjem.users.biscuit = {
     user = "biscuit";
     directory = "/home/biscuit";

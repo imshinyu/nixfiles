@@ -9,6 +9,7 @@
     packages = with pkgs; [
     ];
   };
+  security.pam.services.family.kwallet.enable = true;
   hjem.users.family = {
     user = "family";
     directory = "/home/family";

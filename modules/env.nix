@@ -14,6 +14,7 @@
     ANDROID_HOME      = "$XDG_DATA_HOME/android/sdk";
     # Not officially in the specification
     XDG_BIN_HOME      = "$HOME/.local/bin";
+    QT_QPA_PLATFORMTHEME = "qtengine";
     PATH = [ 
       "${XDG_BIN_HOME}"
     ];

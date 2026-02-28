@@ -1,34 +1,63 @@
-{ nfig, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 let
   pkgsUnstable = import inputs.nixpkgs-unstable {
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
+  nautilus-portal = pkgs.runCommandLocal "nautilus-portal" { } ''
+    mkdir -p $out/share/xdg-desktop-portal/portals
+    cat > $out/share/xdg-desktop-portal/portals/nautilus.portal <<EOF
+    [portal]
+    DBusName=org.gnome.Nautilus
+    Interfaces=org.freedesktop.impl.portal.FileChooser
+    EOF
+  '';
 in
 {
   imports = [
     ./nixcord.nix
     ./steam.nix
     ./appimage.nix
+    ./spicetify.nix
+    ./qbittorrent.nix
+    inputs.aagl.nixosModules.default
   ];
+  nixpkgs.overlays = [ (final: prev: {
+    inherit (prev.lixPackageSets.stable)
+      nixpkgs-review
+      nix-eval-jobs
+      nix-fast-build
+      colmena;
+  }) ];
+  nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs.config.allowUnfree = true;
-  services.transmission.enable = true;
+  programs.nix-index-database.comma.enable = true;
+  programs.nix-index.enable = true;
   programs.adb.enable = true;
   programs.xwayland.enable = true;
   programs.gamemode.enable = true;
   services.flatpak.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
+  programs.nix-ld.enable = true;
+  programs.anime-game-launcher.enable = true;
   environment.systemPackages = with pkgs; [
+    winetricks
     mumble
+    bluej
+    thunderbird
+    ente-auth
+    android-studio
+    waydroid-helper
+    waydroid-nftables
     vlc
     jellyfin-rpc
     selectdefaultapplication
     fzf
     feishin
-    rmpc
     evtest
     pkgsUnstable.seanime
+    pkgsUnstable.stoat-desktop
     hyprlock
     hyprshot
     hyprpicker
@@ -87,6 +116,7 @@ in
     btop
     fastfetch
     adw-gtk3
+    inputs.browser-previews.packages.${pkgs.system}.google-chrome-beta
     inputs.elysia.packages.x86_64-linux.default
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
@@ -96,33 +126,33 @@ in
     zip
     rar
     mako
-    protonup-qt
+    protonplus
     heroic
     git
     foot
     quickshell
     yazi
-    felix-fm
     rofi
     pcsx2
     youtube-music
     tsukimi
     trashy
-    lxqt.pavucontrol-qt #volume control
-    nemo
-    xfce.thunar
 
-    gnome-system-monitor
-    gnome-calculator
-    gnome-software
+    # gnome-system-monitor
+    # gnome-calculator
+    # gnome-software
     gnome-keyring #secrets
-    loupe
-    lollypop
+    seahorse
     nautilus
+    nautilus-portal
+    # loupe
+    lxqt.pavucontrol-qt #volume control
 
     kdePackages.partitionmanager
     kdePackages.okular
+    kdePackages.ark
     kdePackages.dolphin
+    kdePackages.gwenview
     kdePackages.qtdeclarative
   ];
 }

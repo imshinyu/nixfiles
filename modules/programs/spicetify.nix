@@ -15,6 +15,5 @@ in
       oldLikeButton
       catJamSynced
     ];
-    theme = spicePkgs.themes.comfy;
   };
 }

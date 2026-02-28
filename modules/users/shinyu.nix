@@ -9,6 +9,7 @@
     packages = with pkgs; [
     ];
   };
+  security.pam.services.shinyu.kwallet.enable = true;
   hjem.users.shinyu = {
     user = "shinyu";
     directory = "/home/shinyu";
