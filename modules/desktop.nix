@@ -9,9 +9,8 @@
   # "${inputs.nixpkgs-unstable}/nixos/modules/programs/wayland/dms-shell.nix"
     "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
   ];
-  programs.fht-compositor.enable = true;
   programs.niri.enable = true;
-  programs.niri.useNautilus = false;
+  programs.niri.useNautilus = true;
   programs.mango.enable = true;
   # programs.wayfire = {
   #   enable = true;

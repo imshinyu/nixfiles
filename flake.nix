@@ -14,59 +14,35 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    elysia = {
-      url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     aagl = {
       url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    browser-previews = {
-      url = "github:nix-community/browser-previews";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # dms = {
-    #   url = "github:AvengeMedia/DankMaterialShell/stable";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
-    # apple-emoji = {
-    #   url ="github:samuelngs/apple-emoji-linux";
-    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
-    # };
     mango = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    fht-compositor = {
-      url = "github:nferhat/fht-compositor";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.rust-overlay.follows = "";
     };
     qtengine = {
       url = "github:kossLAN/qtengine";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
-
+  };  
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.sapphire = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
       };
       modules = [
-        ./modules/hosts/sapphire/default.nix
-        inputs.hjem.nixosModules.default
+        ./hosts/sapphire/default.nix
+        inputs.home-manager.nixosModules.home-manager
         inputs.qtengine.nixosModules.default
         inputs.mango.nixosModules.mango
-        inputs.fht-compositor.nixosModules.default
-        inputs.spicetify-nix.nixosModules.spicetify
-        # inputs.dms.nixosModules.default
-        inputs.nixcord.nixosModules.nixcord
+        inputs.spicetify-nix.homeManagerModules.spicetify
+        inputs.aagl.nixosModules.default
         inputs.nix-index.nixosModules.default
       ];
     };
@@ -75,12 +51,13 @@
         inherit inputs;
       };
       modules = [
-        ./modules/hosts/ruby/default.nix
-        inputs.hjem.nixosModules.default
+        ./hosts/ruby/default.nix
+        inputs.home-manager.nixosModules.home-manager
         inputs.qtengine.nixosModules.default
         inputs.mango.nixosModules.mango
-        inputs.nixcord.nixosModules.nixcord
-        inputs.spicetify-nix.nixosModules.spicetify
+        inputs.spicetify-nix.homeManagerModules.spicetify
+        inputs.nixcord.homeModules.nixcord
+        inputs.nix-index.nixosModules.default
       ];
     };
     # nixosConfigurations.onyx = nixpkgs.lib.nixosSystem {

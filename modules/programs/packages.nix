@@ -14,14 +14,6 @@ let
   '';
 in
 {
-  imports = [
-    ./nixcord.nix
-    ./steam.nix
-    ./appimage.nix
-    ./spicetify.nix
-    ./qbittorrent.nix
-    inputs.aagl.nixosModules.default
-  ];
   nixpkgs.overlays = [ (final: prev: {
     inherit (prev.lixPackageSets.stable)
       nixpkgs-review
@@ -29,116 +21,96 @@ in
       nix-fast-build
       colmena;
   }) ];
+  virtualisation.docker.enable = true;
   nix.package = pkgs.lixPackageSets.stable.lix;
   nixpkgs.config.allowUnfree = true;
   programs.nix-index-database.comma.enable = true;
   programs.nix-index.enable = true;
-  programs.adb.enable = true;
   programs.xwayland.enable = true;
-  programs.gamemode.enable = true;
   services.flatpak.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
   programs.nix-ld.enable = true;
-  programs.anime-game-launcher.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
   environment.systemPackages = with pkgs; [
-    winetricks
-    mumble
+
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
+
+    pkgsUnstable.seanime
+    pkgsUnstable.stoat-desktop
+    
     bluej
-    thunderbird
     ente-auth
-    android-studio
-    waydroid-helper
-    waydroid-nftables
     vlc
     jellyfin-rpc
     selectdefaultapplication
     fzf
     feishin
-    evtest
-    pkgsUnstable.seanime
-    pkgsUnstable.stoat-desktop
-    hyprlock
     hyprshot
     hyprpicker
-    waytrogen
     onlyoffice-desktopeditors
-    osu-lazer-bin
     lua-language-server
-    appimage-run # run appimage
+    appimage-run
     ntfs3g
-    spicetify-cli
     xdg-user-dirs
     python3
-    grim #screenshot tool
-    slurp #select region
+    grim
+    slurp
     copyq
     tree
     pywalfox-native
-    wayfreeze #freeze screen
-    wine
-    wayland-logout #logout gracefully
-    yt-dlp #download youtube stuff
+    wayfreeze
+    wayland-logout
+    yt-dlp
     raylib
-    umu-launcher
-    scrcpy #screencast android
     obsidian
     obs-studio
-    mpvpaper #set videos as wallpapers
-    mangohud
+    mpvpaper
     xwayland-satellite
-    playerctl #player control
+    playerctl
     ffmpeg
-    wlsunset #gamma modifier
-    upscayl #upscale photos
-    nwg-look #GTK theme settings
-    darkly #qt style
+    wlsunset
+    nwg-look
+    darkly
     distrobox
     google-chrome
     imagemagick
     krita
-    ludusavi #backup/restore game save
-    matugen #dynamic theme generator
+    matugen
     networkmanagerapplet
     papirus-icon-theme
-    ncdu #folder size tui
+    ncdu
     wl-clipboard
-    lact #gpu control
-    xdg-ninja #check folders that don't follow xdg-dirs spec
+    lact
+    xdg-ninja
     rustup
     gcc
     go
     handbrake
-    blender
     docker-compose
-    jetbrains-toolbox
     fd
     btop
     fastfetch
     adw-gtk3
-    inputs.browser-previews.packages.${pkgs.system}.google-chrome-beta
-    inputs.elysia.packages.x86_64-linux.default
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
-    inputs.xboxdrv.packages.${pkgs.stdenv.hostPlatform.system}.xboxdrv
     wf-recorder
     zip
     rar
     mako
-    protonplus
-    heroic
     git
     foot
     quickshell
     yazi
     rofi
-    pcsx2
     youtube-music
     tsukimi
     trashy
 
-    # gnome-system-monitor
+    gnome-system-monitor
     # gnome-calculator
     # gnome-software
     gnome-keyring #secrets
@@ -151,7 +123,6 @@ in
     kdePackages.partitionmanager
     kdePackages.okular
     kdePackages.ark
-    kdePackages.dolphin
     kdePackages.gwenview
     kdePackages.qtdeclarative
   ];

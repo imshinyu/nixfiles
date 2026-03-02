@@ -15,5 +15,7 @@ in
       oldLikeButton
       catJamSynced
     ];
-  };
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
+ };
 }
