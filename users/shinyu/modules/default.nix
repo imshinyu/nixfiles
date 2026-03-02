@@ -2,8 +2,8 @@
 {
   imports = [
     ./nixcord.nix
-    ./mango.nix
-    ./niri.nix
-    ./quickshell.nix
+    ../../../packages/mango/mango.nix
+    ../../../packages/niri/niri.nix
+    ../../../packages/quickshell/quickshell.nix
   ];
 }

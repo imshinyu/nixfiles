@@ -6,6 +6,7 @@ in
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     
     users = (if hostname == "sapphire" then {
       shinyu = ../users/shinyu/home.nix;

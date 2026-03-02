@@ -4,6 +4,7 @@
     [
       ./hardware-configuration.nix
       ./programs.nix
+      ../common.nix
       ../../modules/home-manager.nix
       ../../modules/systemd.nix
       ../../modules/xdg-portal.nix

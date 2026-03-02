@@ -4,6 +4,7 @@
   imports = [
     ./modules
     inputs.nixcord.homeModules.nixcord
+    inputs.mango.hmModules.mango
   ];
   home = {
     stateVersion = "25.11";

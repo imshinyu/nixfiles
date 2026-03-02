@@ -41,7 +41,6 @@
         inputs.home-manager.nixosModules.home-manager
         inputs.qtengine.nixosModules.default
         inputs.mango.nixosModules.mango
-        inputs.spicetify-nix.homeManagerModules.spicetify
         inputs.aagl.nixosModules.default
         inputs.nix-index.nixosModules.default
       ];
@@ -55,8 +54,6 @@
         inputs.home-manager.nixosModules.home-manager
         inputs.qtengine.nixosModules.default
         inputs.mango.nixosModules.mango
-        inputs.spicetify-nix.homeManagerModules.spicetify
-        inputs.nixcord.homeModules.nixcord
         inputs.nix-index.nixosModules.default
       ];
     };

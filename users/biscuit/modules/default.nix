@@ -2,9 +2,7 @@
 {
   imports = [
     ./nixcord.nix
-    ./mango.nix
-    ./niri.nix
-    ./quickshell.nix
     ./spicetify.nix
+    ../../../packages/quickshell/quickshell.nix
   ];
 }

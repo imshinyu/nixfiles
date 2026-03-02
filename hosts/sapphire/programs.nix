@@ -2,10 +2,10 @@
 {
   imports =
     [
-      ../../modules/programs/qbittorrent.nix
-      ../../modules/programs/packages.nix
-      ../../modules/programs/gaming.nix
-      ../../modules/programs/android.nix
+      ../../packages/qbittorrent.nix
+      ../../packages/general.nix
+      ../../packages/gaming.nix
+      ../../packages/android.nix
     ];
   environment.systemPackages = with pkgs; [
     mumble
