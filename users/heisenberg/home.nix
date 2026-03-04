@@ -1,13 +1,9 @@
-{ config, pkgs, inputs, ...}:
+{ config, lib, pkgs, inputs, ...}:
 
 {
   home = {
     stateVersion = "25.11";
-    shell.enableFishIntegration = true;
     username = "heisenberg";
     homeDirectory = "/home/heisenberg";
-    packages = with pkgs; [
-      
-    ];
   };
 }

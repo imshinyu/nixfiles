@@ -1,24 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./programs.nix
-      ../common.nix
-      ../../modules/home-manager.nix
-      ../../modules/systemd.nix
-      ../../modules/xdg-portal.nix
-      ../../modules/env.nix
-      ../../modules/fonts.nix
-      ../../modules/display-manager.nix
-      ../../modules/desktop.nix
-      ../../modules/locale.nix
-      ../../modules/boot.nix
-      ../../modules/printer.nix
-      ../../users/shinyu/shinyu.nix
-      ../../users/biscuit/biscuit.nix
-      ../../users/heisenberg/heisenberg.nix
-    ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
   };

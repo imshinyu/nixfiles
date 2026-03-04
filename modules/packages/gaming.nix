@@ -1,6 +1,8 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, aagl, inputs, ... }:
 {
-  nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+  # nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+	imports = [ aagl.nixosModules.default ];
+  nix.settings = aagl.nixConfig;
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;

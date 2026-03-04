@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "My super duper awesome flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -7,7 +7,7 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     helix.url = "github:helix-editor/helix/master";
     xboxdrv.url = "github:xboxdrv/xboxdrv";
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    # millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixcord.url = "github:FlameFlag/nixcord";
     nix-index.url = "github:nix-community/nix-index-database";
     spicetify-nix = {
@@ -31,39 +31,43 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };  
-  outputs = { self, nixpkgs, ... }@inputs: {
-    nixosConfigurations.sapphire = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        ./hosts/sapphire/default.nix
-        inputs.home-manager.nixosModules.home-manager
-        inputs.qtengine.nixosModules.default
-        inputs.mango.nixosModules.mango
-        inputs.aagl.nixosModules.default
-        inputs.nix-index.nixosModules.default
-      ];
-    };
-    nixosConfigurations.ruby = nixpkgs.lib.nixosSystem {
-      specialArgs = {
-        inherit inputs;
-      };
-      modules = [
-        ./hosts/ruby/default.nix
-        inputs.home-manager.nixosModules.home-manager
-        inputs.qtengine.nixosModules.default
-        inputs.mango.nixosModules.mango
-        inputs.nix-index.nixosModules.default
-      ];
-    };
-    # nixosConfigurations.onyx = nixpkgs.lib.nixosSystem {
-    #   specialArgs = {
-    #     inherit inputs;
-    #   };
-    #   modules = [
-    #     ./modules/hosts/onyx/default.nix
-    #   ];
-    # };
-  };
+  outputs = { self, nixpkgs, aagl, home-manager, ... }@inputs:
+        let
+      inherit (inputs.nixpkgs.lib.fileset) toList fileFilter;
+      import-tree =
+        path:
+        toList (fileFilter (file: file.hasExt "nix" && !(inputs.nixpkgs.lib.hasPrefix "_" file.name)) path);
+    in
+   {
+      nixosConfigurations = {
+	    sapphire = nixpkgs.lib.nixosSystem {
+	      specialArgs = {
+	        inherit inputs;
+	        inherit aagl;
+	      };
+	      modules = 
+	        (import-tree ./modules/system)
+	       ++ (import-tree ./hosts/sapphire)
+	       ++ [
+          ./users/shinyu/default.nix
+          ./users/biscuit/default.nix
+          ./users/family/default.nix
+	        inputs.home-manager.nixosModules.default
+	        inputs.qtengine.nixosModules.default
+	        inputs.mango.nixosModules.mango
+	        inputs.spicetify-nix.nixosModules.spicetify
+	        inputs.nixcord.nixosModules.nixcord
+	        inputs.nix-index.nixosModules.default
+	        home-manager.nixosModules.home-manager
+	        {
+	          home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+	          home-manager.users.shinyu = import ./users/shinyu/home.nix;
+	          home-manager.users.biscuit = import ./users/biscuit/home.nix;
+	          home-manager.users.family = import ./users/family/home.nix;
+	        }
+	      ];
+	    };
+	  };
+	};
 }

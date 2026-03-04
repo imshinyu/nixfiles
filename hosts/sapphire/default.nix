@@ -1,24 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./dualboot.nix
-      ./programs.nix
-      ./mic.nix
-      ../common.nix
-      ../../modules/home-manager.nix
-      ../../modules/systemd.nix
-      ../../modules/xdg-portal.nix
-      ../../modules/env.nix
-      ../../modules/fonts.nix
-      ../../modules/display-manager.nix
-      ../../modules/desktop.nix
-
-      ../../users/shinyu/shinyu.nix
-      ../../users/biscuit/biscuit.nix
-      ../../users/family/family.nix
-    ];
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     substituters = [ "https://ezkea.cachix.org" ];

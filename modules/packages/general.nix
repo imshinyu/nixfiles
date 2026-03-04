@@ -44,9 +44,11 @@ in
     pkgsUnstable.seanime
     pkgsUnstable.stoat-desktop
     
+    nixd
     bluej
     ente-auth
     vlc
+    protonvpn-gui
     jellyfin-rpc
     selectdefaultapplication
     fzf
@@ -111,14 +113,12 @@ in
     trashy
 
     gnome-system-monitor
-    # gnome-calculator
-    # gnome-software
-    gnome-keyring #secrets
+    gnome-calculator
+    gnome-keyring
     seahorse
     nautilus
     nautilus-portal
-    # loupe
-    lxqt.pavucontrol-qt #volume control
+    lxqt.pavucontrol-qt
 
     kdePackages.partitionmanager
     kdePackages.okular
