@@ -1,5 +1,27 @@
 {config, lib, pkgs, inputs, ...}:
 {
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://ezkea.cachix.org" ];
+    trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
+  };
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 3d";
+  };
+
+  powerManagement.cpuFreqGovernor = "performance";
+  networking.networkmanager.enable = true;
+  services.gvfs.enable = true;
+  services.openssh.enable = true;
+  environment.shells = with pkgs;[
+    fish
+  ];
+  security.polkit.enable = true;
+  security.soteria.enable = true;
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.systemd-boot.configurationLimit = 3;

@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 let
-  pkgsUnstable = import inputs.nixpkgs-unstable {
+  pkgs-unstable = import inputs.nixpkgs-unstable {
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
@@ -14,6 +14,7 @@ let
   '';
 in
 {
+ 
   nixpkgs.overlays = [ (final: prev: {
     inherit (prev.lixPackageSets.stable)
       nixpkgs-review
@@ -21,8 +22,8 @@ in
       nix-fast-build
       colmena;
   }) ];
-  virtualisation.docker.enable = true;
   nix.package = pkgs.lixPackageSets.stable.lix;
+  virtualisation.docker.enable = true;
   nixpkgs.config.allowUnfree = true;
   programs.nix-index-database.comma.enable = true;
   programs.nix-index.enable = true;
@@ -41,8 +42,8 @@ in
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
 
-    pkgsUnstable.seanime
-    pkgsUnstable.stoat-desktop
+    pkgs-unstable.seanime
+    pkgs-unstable.stoat-desktop
     
     nixd
     bluej

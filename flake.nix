@@ -22,6 +22,9 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+    };
     qtengine = {
       url = "github:kossLAN/qtengine";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -49,10 +52,12 @@
 	        (import-tree ./modules/system)
 	       ++ (import-tree ./hosts/sapphire)
 	       ++ [
+	        ./hosts/common.nix
           ./users/shinyu/default.nix
           ./users/biscuit/default.nix
           ./users/family/default.nix
 	        inputs.home-manager.nixosModules.default
+	        inputs.niri-flake.nixosModules.niri
 	        inputs.qtengine.nixosModules.default
 	        inputs.mango.nixosModules.mango
 	        inputs.spicetify-nix.nixosModules.spicetify
@@ -62,6 +67,7 @@
 	        {
 	          home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
 	          home-manager.users.shinyu = import ./users/shinyu/home.nix;
 	          home-manager.users.biscuit = import ./users/biscuit/home.nix;
 	          home-manager.users.family = import ./users/family/home.nix;
