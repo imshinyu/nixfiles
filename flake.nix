@@ -22,9 +22,6 @@
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    niri-flake = {
-      url = "github:sodiboo/niri-flake";
-    };
     qtengine = {
       url = "github:kossLAN/qtengine";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -57,7 +54,6 @@
           ./users/biscuit/default.nix
           ./users/family/default.nix
 	        inputs.home-manager.nixosModules.default
-	        inputs.niri-flake.nixosModules.niri
 	        inputs.qtengine.nixosModules.default
 	        inputs.mango.nixosModules.mango
 	        inputs.spicetify-nix.nixosModules.spicetify

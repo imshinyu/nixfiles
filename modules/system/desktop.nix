@@ -9,9 +9,7 @@
   # "${inputs.nixpkgs-unstable}/nixos/modules/programs/wayland/dms-shell.nix"
     "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
   ];
-  nixpkgs.overlays = [ inputs.niri-flake.overlays.niri ];
   programs.niri.enable = true;
-  programs.niri.package = pkgs.niri-unstable;
   programs.mango.enable = true;
   # programs.wayfire = {
   #   enable = true;

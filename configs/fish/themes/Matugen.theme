@@ -1,0 +1,36 @@
+
+# Syntax highlighting colors
+set -g fish_color_normal #141319
+set -g fish_color_command #c7bfff
+set -g fish_color_quote #fbba61
+set -g fish_color_redirection #464268
+set -g fish_color_end #c7c1ef
+set -g fish_color_error #ffb4ab
+set -g fish_color_param #c9c4d4
+set -g fish_color_comment #928f9d
+set -g fish_color_match #fbba61
+set -g fish_color_selection--background=#464268
+set -g fish_color_search_match --background=#464268
+set -g fish_color_history_current --bold
+set -g fish_color_operator #464268
+set -g fish_color_escape #35343b
+set -g fish_color_cwd #c7bfff
+set -g fish_color_cwd_root #ffb4ab
+set -g fish_color_valid_path --underline
+set -g fish_color_autosuggestion #474552
+set -g fish_color_user #fbba61
+set -g fish_color_host #141319
+set -g fish_color_cancel -r
+
+# Pager colors
+set -g fish_pager_color_completion #141319
+set -g fish_pager_color_description #c9c4d4 #fbba61
+set -g fish_pager_color_prefix #141319 --bold --underline
+set -g fish_pager_color_progress #35343b --background= #6156b8
+set -g fish_pager_color_selected_background --background= #464268
+
+set -g fish_color_option #c9c4d4
+set -g fish_color_keyword #c7bfff
+set -g fish_color_host_remote #fbba61
+set -g fish_color_status #ffb4ab
+
