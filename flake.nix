@@ -18,6 +18,10 @@
       url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    elysia = {
+      url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     mango = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,12 +30,19 @@
       url = "github:kossLAN/qtengine";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+    hjem = {
+      url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hjem-impure = {
+      url = "github:Rexcrazy804/hjem-impure";
+      # these are only required for internal tests,
+      # hence you can set em to nothing
+      inputs.nixpkgs.follows = "";
+      inputs.hjem.follows = "";
+    };
   };  
-  outputs = { self, nixpkgs, aagl, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, aagl, ... }@inputs:
         let
       inherit (inputs.nixpkgs.lib.fileset) toList fileFilter;
       import-tree =
@@ -46,28 +57,17 @@
 	        inherit aagl;
 	      };
 	      modules = 
-	        (import-tree ./modules/system)
+	        (import-tree ./modules)
 	       ++ (import-tree ./hosts/sapphire)
 	       ++ [
 	        ./hosts/common.nix
           ./users/shinyu/default.nix
           ./users/biscuit/default.nix
           ./users/family/default.nix
-	        inputs.home-manager.nixosModules.default
 	        inputs.qtengine.nixosModules.default
 	        inputs.mango.nixosModules.mango
-	        inputs.spicetify-nix.nixosModules.spicetify
-	        inputs.nixcord.nixosModules.nixcord
+	        inputs.hjem.nixosModules.default
 	        inputs.nix-index.nixosModules.default
-	        home-manager.nixosModules.home-manager
-	        {
-	          home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-	          home-manager.users.shinyu = import ./users/shinyu/home.nix;
-	          home-manager.users.biscuit = import ./users/biscuit/home.nix;
-	          home-manager.users.family = import ./users/family/home.nix;
-	        }
 	      ];
 	    };
 	  };

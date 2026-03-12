@@ -1,9 +1,7 @@
 {config, pkgs, inputs, ...}:
 {
-  imports = [ inputs.nixcord.homeModules.nixcord ];
+  imports = [ inputs.nixcord.nixosModules.nixcord ];
   programs.nixcord = {
-    enable = true;
-    user = "shinyu";
     discord = {
       # equicord.enable = true; 
       vencord.enable = true;

@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ../../modules/packages/general.nix
+      ../../profiles/general.nix
     ];
   environment.systemPackages = with pkgs; [
   ];

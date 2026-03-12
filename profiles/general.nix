@@ -31,22 +31,29 @@ in
   services.flatpak.enable = true;
   programs.fish.enable = true;
   programs.firefox.enable = true;
+  programs.java.enable = true;
   programs.nix-ld.enable = true;
   programs.appimage = {
     enable = true;
     binfmt = true;
   };
-  environment.systemPackages = with pkgs; [
-
+  environment.systemPackages = (with pkgs-unstable; [
+    seanime
+    stoat-desktop
+    spicetify-cli
+    google-chrome
+    yazi
+    
+  ]) ++ (with pkgs; [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
+    inputs.elysia.packages.x86_64-linux.default
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
 
-    pkgs-unstable.seanime
-    pkgs-unstable.stoat-desktop
-    
+    vesktop
+    sqlite
+    dbeaver-bin
     nixd
-    bluej
     ente-auth
     vlc
     protonvpn-gui
@@ -81,7 +88,6 @@ in
     nwg-look
     darkly
     distrobox
-    google-chrome
     imagemagick
     krita
     matugen
@@ -107,7 +113,6 @@ in
     git
     foot
     quickshell
-    yazi
     rofi
     youtube-music
     tsukimi
@@ -126,5 +131,5 @@ in
     kdePackages.ark
     kdePackages.gwenview
     kdePackages.qtdeclarative
-  ];
+  ]);
 }

@@ -8,12 +8,12 @@
       default_session = {
         # command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --remember --remember-user-session --time --cmd ${pkgs.labwc}";
         # command = "${inputs.niri.packages.${pkgs.system}.niri}/bin/niri --config /var/lib/greetd/niri/config.kdl";
-        command = "${inputs.mango.packages.${pkgs.system}.mango}/bin/mango -s '${pkgs.quickshell}/bin/qs -p /home/shinyu/nixfiles/configs/quickshell/greetd/shell.qml'";
+        command = "${inputs.mango.packages.${pkgs.system}.mango}/bin/mango -s '${pkgs.quickshell}/bin/qs -p /var/lib/greetd/myGreet/shell.qml'";
         user = "greeter";
       };
     };
   };
-  users.users.greeter.extraGroups = [ "users" "video" "input" ];
+  users.users.greeter.extraGroups = [ "video" "input" ];
   # services.greetd.useTextGreeter = true;
   
   # services.displayManager.ly = {
