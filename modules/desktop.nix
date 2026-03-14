@@ -2,12 +2,12 @@
 {
   disabledModules = [
     # "services/x11/desktop-managers/budgie.nix"
-    "services/desktop-managers/plasma6.nix"
+    # "services/desktop-managers/plasma6.nix"
   ];
   imports = [
   # "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/budgie.nix"
   # "${inputs.nixpkgs-unstable}/nixos/modules/programs/wayland/dms-shell.nix"
-    "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
+    # "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
   ];
   programs.niri.enable = true;
   programs.mango.enable = true;
@@ -67,11 +67,11 @@
   #   lxqt.qterminal
   # ];
 
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    kwallet
-    konsole
-    kate
-  ];
+  # services.desktopManager.plasma6.enable = true;
+  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  #   plasma-browser-integration
+  #   kwallet
+  #   konsole
+  #   kate
+  # ];
 }

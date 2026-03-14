@@ -22,6 +22,12 @@
       url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprism = {
+      url = "path:/home/shinyu/nixfiles/programs/hyprism";
+    };
+    niri-screentime = {
+      url = "github:probeldev/niri-screen-time";
+    };
     mango = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,7 +70,7 @@
           ./users/shinyu/default.nix
           ./users/biscuit/default.nix
           ./users/family/default.nix
-	        inputs.qtengine.nixosModules.default
+	        # inputs.qtengine.nixosModules.default
 	        inputs.mango.nixosModules.mango
 	        inputs.hjem.nixosModules.default
 	        inputs.nix-index.nixosModules.default

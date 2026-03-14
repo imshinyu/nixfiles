@@ -43,14 +43,18 @@ in
     spicetify-cli
     google-chrome
     yazi
+    protonplus
     
   ]) ++ (with pkgs; [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     inputs.elysia.packages.x86_64-linux.default
-    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
+    inputs.niri-screentime.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default.qt5
 
-    vesktop
+    mpv
+    equibop
     sqlite
     dbeaver-bin
     nixd
@@ -87,6 +91,7 @@ in
     wlsunset
     nwg-look
     darkly
+    darkly-qt5
     distrobox
     imagemagick
     krita
@@ -126,7 +131,11 @@ in
     nautilus-portal
     lxqt.pavucontrol-qt
 
+    kdePackages.elisa
+    kdePackages.breeze
+    kdePackages.breeze.qt5
     kdePackages.partitionmanager
+    kdePackages.dolphin
     kdePackages.okular
     kdePackages.ark
     kdePackages.gwenview

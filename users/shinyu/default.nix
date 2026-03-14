@@ -1,6 +1,6 @@
 { config, lib, pkgs, inputs, ...}:
 let
-  dots = ../../dots;
+  dots = "${../../dots}";
 in
 {
   users.users.shinyu = {
@@ -15,7 +15,7 @@ in
     directory = "/home/shinyu";
     impure = {
       enable = true;
-      dotsDir = dots;
+      dotsDir = "${dots}";
       dotsDirImpure = "/home/shinyu/nixfiles/dots";
     };
     xdg.config.files = {
@@ -33,9 +33,6 @@ in
       "quickshell".source = dots + "/quickshell";
       "rofi".source = dots + "/rofi";
       "yazi".source = dots + "/yazi";
-    };
-    environment.sessionVariables = {
-      QT_QPA_PLATFORMTHEME = "qtengine";
     };
   };
 }

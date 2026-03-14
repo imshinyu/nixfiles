@@ -2,12 +2,12 @@
 {
   imports =
     [
-      ../../profiles/qbittorrent.nix
+      ../../programs/qbittorrent.nix
       ../../profiles/general.nix
       ../../profiles/gaming.nix
       ../../profiles/android.nix
-      ../../profiles/nixcord.nix
-      ../../profiles/spicetify.nix
+      ../../programs/nixcord.nix
+      ../../programs/spicetify.nix
     ];
   environment.systemPackages = with pkgs; [
     mumble

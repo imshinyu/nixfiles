@@ -31,7 +31,8 @@
   boot.blacklistedKernelModules = [ "pcspkr" ];
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   time.timeZone = "Africa/Algiers";
   i18n.defaultLocale = "en_US.UTF-8";

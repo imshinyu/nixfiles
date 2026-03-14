@@ -21,8 +21,8 @@
     enableSSHSupport = true;
     pinentryPackage = lib.mkForce pkgs.pinentry-qt;
   };
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8443 8001 ];
+  networking.firewall.allowedUDPPorts = [ 8001 ];
   # networking.firewall.enable = false;
 
   system.stateVersion = "25.11"; # Did you read the comment?

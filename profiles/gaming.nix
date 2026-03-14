@@ -19,10 +19,10 @@
     mangohud
     umu-launcher
     ludusavi
-    protonplus
     heroic
     pcsx2
     evtest
     inputs.xboxdrv.packages.${pkgs.stdenv.hostPlatform.system}.xboxdrv
+    inputs.hyprism.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
