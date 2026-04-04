@@ -7,7 +7,7 @@ in
     isNormalUser = true;
     description = "shinyu";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "users" "kvm"];
+    extraGroups = [ "networkmanager" "wheel" "users" "kvm" "libvirtd"];
   };
   hjem.extraModules = [inputs.hjem-impure.hjemModules.default];
   hjem.users.shinyu = {
@@ -33,6 +33,7 @@ in
       "quickshell".source = dots + "/quickshell";
       "rofi".source = dots + "/rofi";
       "yazi".source = dots + "/yazi";
+      "swaync".source = dots + "/swaync";
     };
   };
 }

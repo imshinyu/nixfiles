@@ -20,9 +20,9 @@ ShellRoot{
     property int selectedUser: 0
     property int selectedSession: 0
     property var userToSessionMap: {
-        "shinyu": "Mango",
-        "biscuit": "Mango",
-        "family": "COSMIC"
+        "shinyu": "Niri",
+        "biscuit": "Niri",
+        "family": "Plasma (Wayland)"
     }
 
     Process {

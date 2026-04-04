@@ -23,13 +23,16 @@ window-rule {
     match app-id=r#"floorp$"#
     match app-id=r#"firefox$"#
     match app-id=r#"helium$"#
+    match app-id=r#"chromium$"#
+    match app-id=r#"zen$"#
     open-on-workspace "1"
 }
 window-rule {
     match app-id=r#"steam$"#
     match app-id=r#"heroic$"#
     match app-id=r#"hydralauncher$"#
-    match app-id=r#"twintaillauncher"#
+    match app-id=r#"twintaillauncher$"#
+    match app-id=r#"page.kramo.Cartridges$"#
     open-on-workspace "2"
 }
 window-rule {
@@ -49,6 +52,12 @@ window-rule {
 window-rule {
     match title="YouTube Music"
     match app-id=r#"com.github.th_ch.youtube_music$"#
+    match title="ZenlessZoneZero"
+    match title="Wuthering Waves"
+    match title="Umamusume"
+    match title="Genshin Impact"
+    match title="Rocket League"
+    match title="Minecraft"
     open-on-workspace "5"
 }
 window-rule {

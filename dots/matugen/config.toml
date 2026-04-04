@@ -1,13 +1,17 @@
 [config]
 version_check = false
 
+[templates.swaync]
+input_path = "~/.config/matugen/templates/colors.css"
+output_path = "~/.config/swaync/colors.css"
+post_hook = "swaync-client -rs"
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'
+
 [templates.neovim]
 input_path = '~/.config/matugen/templates/nvim.lua'
 output_path = '~/.config/nvim/matugen.lua'
-
-[templates.nwgmenu]
-input_path = '~/.config/matugen/templates/nwg-menu.css'
-output_path = '~/.config/nwg-panel/menu-start.css'
 
 [templates.helix]
 input_path = '~/.config/matugen/templates/helix.toml'
@@ -20,11 +24,6 @@ output_path = '~/.config/mango/colors.conf'
 [templates.niri]
 input_path = '~/.config/matugen/templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
-
-[templates.hyprland]
-input_path = '~/.config/matugen/templates/hyprland-colors.conf'
-output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
@@ -53,19 +52,15 @@ output_path = '~/.local/share/color-schemes/Matugen.colors'
 
 [templates.discordMidnight]
 input_path = '~/.config/matugen/templates/midnight-discord.css'
-output_path = '~/.config/Vencord/themes/midnight.css'
+output_path = '~/.config/Equicord/themes/midnight.css'
 
 [templates.discordMaterial]
 input_path = '~/.config/matugen/templates/Material-Discord.css'
-output_path = '~/.config/Vencord/themes/material.css'
-
-[templates.vesktopSystem24]
-input_path = '~/.config/matugen/templates/system24-discord.css'
-output_path = '~/.config/vesktop/themes/system24-discord.css'
+output_path = '~/.config/Equicord/themes/material.css'
 
 [templates.discordSystem24]
 input_path = '~/.config/matugen/templates/system24-discord.css'
-output_path = '~/.config/Vencord/themes/system24-discord.css'
+output_path = '~/.config/Equicord/themes/system24-discord.css'
 
 [templates.fish]
 input_path = '~/.config/matugen/templates/fish-colors.theme'

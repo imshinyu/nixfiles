@@ -30,20 +30,38 @@ in
   programs.xwayland.enable = true;
   services.flatpak.enable = true;
   programs.fish.enable = true;
-  programs.firefox.enable = true;
   programs.java.enable = true;
   programs.nix-ld.enable = true;
+  programs.localsend.enable = true;
   programs.appimage = {
     enable = true;
     binfmt = true;
   };
   environment.systemPackages = (with pkgs-unstable; [
+    river
+    (writeTextFile {
+      name = "river-session";
+      destination = "/share/wayland-sessions/river.desktop";
+      text = ''
+        [Desktop Entry]
+        Name=River
+        Comment=Dynamic tiling Wayland compositor
+        Exec=${pkgs-unstable.river}/bin/river
+        Type=Application
+      '';
+    })
     seanime
-    stoat-desktop
     spicetify-cli
     google-chrome
+    chromium
     yazi
     protonplus
+    pywalfox-native
+    equibop
+    (discord.override {
+      withOpenASAR = true;
+      withEquicord = true;
+    })
     
   ]) ++ (with pkgs; [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
@@ -52,12 +70,14 @@ in
     inputs.niri-screentime.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default.qt5
-
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    zed-editor-fhs
     mpv
-    equibop
+    arrpc
     sqlite
     dbeaver-bin
     nixd
+    vscode-langservers-extracted
     ente-auth
     vlc
     protonvpn-gui
@@ -77,7 +97,6 @@ in
     slurp
     copyq
     tree
-    pywalfox-native
     wayfreeze
     wayland-logout
     yt-dlp
@@ -104,6 +123,8 @@ in
     xdg-ninja
     rustup
     gcc
+    meson
+    ninja
     go
     handbrake
     docker-compose
@@ -114,7 +135,7 @@ in
     wf-recorder
     zip
     rar
-    mako
+    swaynotificationcenter
     git
     foot
     quickshell
@@ -131,6 +152,8 @@ in
     nautilus-portal
     lxqt.pavucontrol-qt
 
+    nemo-with-extensions
+    
     kdePackages.elisa
     kdePackages.breeze
     kdePackages.breeze.qt5

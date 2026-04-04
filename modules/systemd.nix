@@ -7,6 +7,7 @@
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
   };
+  systemd.user.units."app-org.fcitx.Fcitx5@autostart.service".enable = false;
   systemd.user.services.plasma-xdg-desktop-portal-kde = {
     serviceConfig = {
       Environment = "QT_QPA_PLATFORMTHEME=qtengine";

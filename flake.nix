@@ -7,16 +7,26 @@
     awww.url = "git+https://codeberg.org/LGFae/awww";
     helix.url = "github:helix-editor/helix/master";
     xboxdrv.url = "github:xboxdrv/xboxdrv";
-    # millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixcord.url = "github:FlameFlag/nixcord";
     nix-index.url = "github:nix-community/nix-index-database";
+    millennium = {
+      url = "path:/home/shinyu/nixfiles/programs/millennium";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    content-manager = {
+      url = "path:/home/shinyu/nixfiles/programs/content-manager";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
-    aagl = {
-      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+    online-fix-launcher = {
+      url = "path:/home/shinyu/nixfiles/programs/ofll";
     };
     elysia = {
       url = "git+https://dawn.wine/foxtrottt/elysia-on-nix/";
@@ -34,10 +44,14 @@
     };
     qtengine = {
       url = "github:kossLAN/qtengine";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem = {
       url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sls-steam = {
+      url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
@@ -48,7 +62,7 @@
       inputs.hjem.follows = "";
     };
   };  
-  outputs = { self, nixpkgs, aagl, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
         let
       inherit (inputs.nixpkgs.lib.fileset) toList fileFilter;
       import-tree =
@@ -60,7 +74,6 @@
 	    sapphire = nixpkgs.lib.nixosSystem {
 	      specialArgs = {
 	        inherit inputs;
-	        inherit aagl;
 	      };
 	      modules = 
 	        (import-tree ./modules)

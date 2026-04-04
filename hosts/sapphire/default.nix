@@ -11,6 +11,9 @@
     jack.enable = true;
   };
   
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  
   hardware.graphics = {
     enable32Bit = true;
     extraPackages = [ pkgs.vulkan-loader ];

@@ -55,7 +55,7 @@ ColumnLayout {
           myTumbler.currentIndex = (myTumbler.currentIndex + 1 + myTumbler.count) % myTumbler.count
           event.accepted = true
         } else if (event.key === Qt.Key_Return) {
-          Quickshell.execDetached(["sh", "-c", `awww img ${myTumbler.currentItem.filePath} --transition-type any --transition-step 63 --transition-fps 60 --transition-duration 2 && matugen --show-colors -t scheme-fidelity image ${myTumbler.currentItem.filePath}  $wallpaper -m dark`])
+          Quickshell.execDetached(["sh", "-c", `awww img ${myTumbler.currentItem.filePath} --transition-type any --transition-step 63 --transition-fps 60 --transition-duration 2 && matugen --show-colors --source-color-index 1 -t scheme-fidelity image ${myTumbler.currentItem.filePath}  $wallpaper -m dark`])
           event.accepted = true
         }
       }
@@ -93,7 +93,7 @@ ColumnLayout {
               hoverEnabled: true
               cursorShape: Qt.PointingHandCursor
               acceptedButtons: Qt.LeftButton
-              onClicked: Quickshell.execDetached(["sh", "-c", `awww img ${wrapperItem.filePath} --transition-type any --transition-step 63 --transition-fps 60 --transition-duration 2 && matugen --show-colors -t scheme-fidelity image ${wrapperItem.filePath}  $wallpaper -m dark`])
+              onClicked: Quickshell.execDetached(["sh", "-c", `awww img ${wrapperItem.filePath} --transition-type any --transition-step 63 --transition-fps 60 --transition-duration 2 && matugen --show-colors --source-color-index 1 -t scheme-fidelity image ${wrapperItem.filePath}  $wallpaper -m dark`])
             }
           }
         }

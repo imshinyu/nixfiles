@@ -2,9 +2,11 @@
 {
   imports = [ inputs.nixcord.nixosModules.nixcord ];
   programs.nixcord = {
+    enable = true;
+    user = "shinyu";
     discord = {
-      # equicord.enable = true; 
-      vencord.enable = true;
+      equicord.enable = true; 
+      # vencord.enable = true;
     };
     # vesktop.enable = true;
     config = {
