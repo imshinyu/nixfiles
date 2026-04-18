@@ -20,10 +20,11 @@ ColumnLayout {
   Layout.fillWidth: true
   FolderListModel {
     id: folderModel
-    nameFilters: ["*.jpeg", "*.jpg", "*.png","*.gif"]
+    nameFilters: ["*.jpeg", "*.jpg", "*.png","*.gif", ".webp"]
     folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation) + "/Wallpapers"
     showFiles: true
     showDirs: false
+    sortField: FolderListModel.Time
   }
   ClippingWrapperRectangle {
     radius: Appearance.Settings.widgetRadius

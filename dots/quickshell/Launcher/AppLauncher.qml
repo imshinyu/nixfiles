@@ -1,4 +1,4 @@
-pragma ComponentBehavior: Bound
+// pragma ComponentBehavior: Bound
 import Quickshell
 import Quickshell.Wayland
 import Quickshell.Io
@@ -91,13 +91,14 @@ Variants {
                                 focus: true
                                 anchors.verticalCenter: parent.verticalCenter
                                 x: 8
+                                property bool searching: text.length > 0
                                 property bool notSearching: text.length === 0
                                 property string content: entry.text
                                 property var current: appView.currentIndex
                                 onTextChanged: appView.forceLayout()
                                 Keys.onReturnPressed: {
                                     const list = appView.model;
-                                    if (!notSearching) {
+                                    if (searching) {
                                     console.log(list);
                                     if (list.length > 0) {
                                         list[current].execute();
@@ -150,14 +151,14 @@ Variants {
                                 height: parent.height
                                 model: entry.searching?  DesktopEntries.applications : FuzzySort.go(entry.text, DesktopEntries.applications.values, {
                                     all: true,
-                                    keys: ["name","genericName"]
+                                    keys: ["name","genericName","icon"]
                                 }).map(a => a.obj)
                                 y: 8
                                 spacing: 8
                                 anchors.horizontalCenter: parent.horizontalCenter
                                 clip: true
                                 function launchModelData(): void {
-                                    if (currentItem && currentItem.modelData) {
+                                    if (currentItem == currentItem.modelData) {
                                         currentItem.modelData.execute()
                                         root.active = false;
                                     }
@@ -202,12 +203,17 @@ Variants {
                                         }
                                     ]
                                     Image {
-                                        id: icon
+                                        id: appIcon
                                         anchors.verticalCenter: parent.verticalCenter
                                         x: 4
-                                        // source: "/home/shinyu/Pictures/✮.jpg"
                                         width: 25
                                         height: 25
+                                        source: {
+                                            const ic = modelData?.icon ?? "";
+                                            if (!ic) return "";
+                                            if (ic.startsWith("/")) return ic;
+                                            return Quickshell.iconPath(ic);
+                                        }
                                     }
                                     Text {
                                         id: text

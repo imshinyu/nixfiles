@@ -73,11 +73,32 @@ Scope {
 						leftMargin: 10
 						rightMargin: 15
 					}
-
-					IconImage {
-						implicitSize: 30
-						source: Quickshell.iconPath("audio-volume-high")
+					Text {
+						Layout.preferredHeight: 30
+						Layout.preferredWidth: 30
+						font {
+							pixelSize: 30
+							family: "Symbols Nerd Font"
+						}
+						horizontalAlignment: Text.AlignHCenter
+						verticalAlignment: Text.AlignVCenter
+						color: "#fff"
+						text:
+							if (Pipewire.defaultAudioSink?.audio.volume===0.0) return "\udb81\udf5f";
+							else if (Pipewire.defaultAudioSink?.audio.muted==true) return "\udb81\udf5f";
+							else if(Pipewire.defaultAudioSink?.audio.volume<0.3 && Pipewire.defaultAudioSink?.audio.volume>0.0) return "\udb81\udd7f";
+							else if (Pipewire.defaultAudioSink?.audio.volume>0.4 && Pipewire.defaultAudioSink?.audio.volume<0.7) return "\udb81\udd80";
+							else if (Pipewire.defaultAudioSink?.audio.volume>0.5) return "\udb81\udd7e";
 					}
+
+					// IconImage {
+					// 	implicitSize: 30
+					// 	source:
+					// 		if(Pipewire.defaultAudioSink?.audio.volume<0.5) return Quickshell.iconPath("volume_down");
+					// 		else if (Pipewire.defaultAudioSink?.audio.volume==0) return Quickshell.iconPath("volume_mute");
+					// 		else if (Pipewire.defaultAudioSink?.audio.volume>0.5) return Quickshell.iconPath("audio-volume-high");
+					// 		else return Quickshell.iconPath("audio-volume-high-symbolic")
+					// }
 
 					Rectangle {
 						// Stretches to fill all left-over space

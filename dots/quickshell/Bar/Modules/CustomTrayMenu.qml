@@ -49,7 +49,7 @@ PopupWindow {
     }
 
     Rectangle {
-        id: bg
+        id: bgbg
         anchors.fill: parent
         color: Appearance.Colors.palette.background || "#222"
         radius: 12
@@ -89,9 +89,9 @@ PopupWindow {
             Rectangle {
                 id: bg
                 anchors.fill: parent
-                color: mouseArea.containsMouse ? Appearance.Colors.palette.primary : "transparent"
+                color: mouseArea.containsMouse ? Appearance.Colors.palette.primary_container : "transparent"
                 radius: 8
-                visible: !(modelData?.isSeparator ?? false)
+                visible: !(entry.modelData?.isSeparator ?? false)
                 property color hoverTextColor: mouseArea.containsMouse ? Appearance.Colors.palette.on_primary : Appearance.Colors.palette.on_background
 
                 RowLayout {
@@ -118,19 +118,6 @@ PopupWindow {
                     }
                 }
 
-                // If MouseArea causes issues, try using a simple Rectangle with TapHandler
-                TapHandler {
-                    enabled: (modelData?.enabled ?? true) || !(modelData?.isSeparator ?? false) && trayMenu.visible
-                    onTapped: {
-                        if (modelData && !modelData.isSeparator) {
-                            modelData.triggered()
-                            trayMenu.hideMenu()
-                        }
-                    }
-                }
-                
-                // OR if you prefer MouseArea and it's available:
-                /*
                 MouseArea {
                     id: mouseArea
                     anchors.fill: parent
@@ -143,7 +130,6 @@ PopupWindow {
                         }
                     }
                 }
-                */
             }
         }
     }

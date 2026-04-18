@@ -5,7 +5,7 @@ binds {
     Mod+R { spawn "rofi" "-show" "drun" "-icon-theme" "Win11-dark-theme" "-show-icons"; }
     // Mod+R hotkey-overlay-title="Open: qs Launcher" { spawn-sh "qs ipc call launcher opencloselauncher";}
     Mod+Slash hotkey-overlay-title="Open: qs Settings"{ spawn-sh "qs ipc call settings openclosesettings";}
-    Mod+E hotkey-overlay-title="Open: Yazi"{ spawn "foot" "yazi"; }
+    Mod+E hotkey-overlay-title="Open: Yazi"{ spawn "thunar"; }
     Mod+N hotkey-overlay-title="Open: Notification Center" { spawn-sh "swaync-client -t"; }
     //Mod+E { spawn "dolphin";}
     Alt+V { spawn-sh "copyq toggle";}

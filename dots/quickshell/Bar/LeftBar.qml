@@ -34,7 +34,7 @@ Variants {
           width: parent.width - 5
           height: parent.height
           anchors.left: parent.left
-          color: scope.barsColor
+          color: Qt.rgba(scope.barsColor.r,scope.barsColor.g,scope.barsColor.b,0.63)
           topRightRadius: Settings.cornerRadius
           bottomRightRadius: Settings.cornerRadius
           // Top
@@ -64,13 +64,13 @@ Variants {
               }
               spacing: 5
               Modules.Tray{
-              anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenter: idk.horizontalCenter
               }
               Modules.ClockWidget{
-              anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenter: idk.horizontalCenter
               }
               Modules.Power {
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenter: idk.horizontalCenter
               }
           }
         }

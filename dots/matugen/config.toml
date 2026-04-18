@@ -34,6 +34,15 @@ input_path = '~/.config/matugen/templates/mako'
 output_path = '~/.config/mako/mako-colors'
 post_hook = 'makoctl reload'
 
+[templates.chicago]
+input_path = '~/.config/matugen/templates/chicago.css'
+output_path = '~/.local/share/themes/chicagoMatugen/gtk-3.24/gtk.css'
+
+[templates.papirus]
+input_path = "~/.config/matugen/templates/papirus-recolor.sh"
+output_path = "~/.config/matugen/scripts/papirus-recolor-generated.sh"
+post_hook = "chmod +x ~/.config/matugen/scripts/papirus-recolor-generated.sh && ~/.config/matugen/scripts/papirus-recolor-generated.sh"
+
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'

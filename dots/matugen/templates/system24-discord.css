@@ -35,7 +35,7 @@ body {
   /* transition for borders when hovered */
 
   /* animation/transition options */
-  --animations: on;
+  --animations: off;
   /* off: disable animations/transitions, on: enable animations/transitions */
   --list-item-transition: 0.2s ease;
   /* transition for list items */
@@ -99,11 +99,11 @@ body {
   /* set this to a more opaque color if floating panels look too transparent. only applies if panel blur is on  */
 
   /* other options */
-  --small-user-panel: off;
+  --small-user-panel: on;
   /* off: default user panel, on: smaller user panel like in old discord */
 
   /* unrounding options */
-  --unrounding: off;
+  --unrounding: on;
   /* off: default, on: remove rounded corners from panels */
 
   /* styling options */

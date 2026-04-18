@@ -4,7 +4,7 @@ command = "discord-rpc-lsp"
 
 [language-server.qmlls]
 args = [ "-E" ]
-command = "qmlls"
+command = "qmlls6"
 
 [language-server.clangd]
 command = "clangd"

@@ -10,7 +10,7 @@ Rectangle {
     implicitHeight: 25
     implicitWidth: 25
     color: Colors.palette.surface_bright
-    radius: Settings.widgetRadius + 10
+    radius: Settings.widgetRadius
     MouseArea {
       anchors.fill: power
       hoverEnabled: true

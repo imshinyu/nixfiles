@@ -1,10 +1,10 @@
 {
   "theme": {
     "colorScheme": "~/.local/share/color-schemes/Matugen.colors",
-    "iconTheme": "Papirus-Dark",
-    "style": "Darkly",
+    "iconTheme": "Papirus-Matugen",
+    "style": "Windows",
     "font": {
-      "family": "Nunito",
+      "family": "Departure Mono",
       "size": 12,
       "weight": -1
     },

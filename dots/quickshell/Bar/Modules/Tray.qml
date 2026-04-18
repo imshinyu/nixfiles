@@ -11,7 +11,7 @@ WrapperRectangle {
     visible: SystemTray.items.values.length > 0
     color: Colors.palette.surface_bright
     radius: Settings.widgetRadius
-    margin: 5
+    margin: 6
     ColumnLayout {
         id: tray
         spacing: 3
