@@ -1,0 +1,1 @@
+/home/shinyu/.dotfiles/quickshell/Bar/Modules/Clipboard.qml

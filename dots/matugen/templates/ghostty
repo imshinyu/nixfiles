@@ -1,4 +1,1 @@
-font-family = JetBrainsMono
-background-opacity = 0.5
-command = /usr/bin/fish --login --interactive
-background = {{colors.background.default.hex}}
+/home/shinyu/.dotfiles/matugen/templates/ghostty

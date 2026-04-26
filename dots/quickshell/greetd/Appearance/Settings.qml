@@ -1,12 +1,1 @@
-pragma Singleton
-import Quickshell
-import Quickshell.Io
-import QtQuick
-
-Singleton {
-  property int fontSize: 12
-  property int fontpixelSize: 13
-  property int fontWeight: Font.Bold
-  property string fontFamily: "Nunito"
-  property int radius: 20
-}
+/home/shinyu/.dotfiles/quickshell/greetd/Appearance/Settings.qml

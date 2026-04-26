@@ -1,2 +1,1 @@
-require("recycle-bin"):setup()
-require("confirm-quit"):setup()
+/home/shinyu/.dotfiles/yazi/init.lua

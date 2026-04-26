@@ -1,14 +1,1 @@
-pragma Singleton
-import Quickshell
-import QtQuick
-Singleton {
-    id: root
-    readonly property string time: {
-        Qt.formatDateTime(clock.date, "hh\nmm\n|\nddd\nd")
-    }
-
-    SystemClock {
-        id: clock
-        precision: SystemClock.Minutes
-    }
-}
+/home/shinyu/.dotfiles/quickshell/Services/Time.qml
