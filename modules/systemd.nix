@@ -13,31 +13,31 @@
       Environment = "QT_QPA_PLATFORMTHEME=qtengine";
     };
   };
-  systemd.user.services.mango-reload = {
-    enable = true;
-    description = "Reload mangowc";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${inputs.mango.packages.${pkgs.system}.default}/bin/mmsg -d reload_config";
-    };
-  };
-  systemd.user.paths.mango-reload = {
-    enable = true;
-    description = "Watch Mango config file for changes";
-    pathConfig = {
-      # Provide a list of absolute paths to monitor
-      PathChanged = [
-        "%h/.config/mango/config.conf"
-        "%h/.config/mango/colors.conf"
-        "%h/.config/mango/env.conf"
-        "%h/.config/mango/keybinds.conf"
-        "%h/.config/mango/rules.conf"
-        "%h/.config/mango/shinyu.conf"
-      ];
-      };
-    wantedBy = ["default.target"];
-    wants = ["mango-reload.service"];
-  };
+  # systemd.user.services.mango-reload = {
+  #   enable = true;
+  #   description = "Reload mangowc";
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart = "${inputs.mango.packages.${pkgs.system}.default}/bin/mmsg -d reload_config";
+  #   };
+  # };
+  # systemd.user.paths.mango-reload = {
+  #   enable = true;
+  #   description = "Watch Mango config file for changes";
+  #   pathConfig = {
+  #     # Provide a list of absolute paths to monitor
+  #     PathChanged = [
+  #       "%h/.config/mango/config.conf"
+  #       "%h/.config/mango/colors.conf"
+  #       "%h/.config/mango/env.conf"
+  #       "%h/.config/mango/keybinds.conf"
+  #       "%h/.config/mango/rules.conf"
+  #       "%h/.config/mango/shinyu.conf"
+  #     ];
+  #     };
+  #   wantedBy = ["default.target"];
+  #   wants = ["mango-reload.service"];
+  # };
 
   systemd.services.drbd = {
     path = with pkgs; [ drbd coreutils util-linux systemd ];

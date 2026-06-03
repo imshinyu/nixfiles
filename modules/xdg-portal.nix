@@ -6,8 +6,7 @@
     wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-hyprland
     ];
   };
   xdg.portal.config = {
@@ -16,7 +15,7 @@
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "nautilus"
+        "gtk"
       ];
     };
     mango = {
@@ -24,15 +23,15 @@
         "gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "nautilus"
+        "gtk"
       ];
     };
     niri = {
       default = [
-        "gnome"
+        "hyprland;gtk"
       ];
       "org.freedesktop.impl.portal.FileChooser" = [
-        "nautilus"
+        "gtk"
       ];
     };
   };

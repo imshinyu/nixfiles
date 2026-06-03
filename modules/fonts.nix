@@ -3,6 +3,7 @@
   fonts.packages = with pkgs; [
     # nerdfonts
     tewi-font
+    departure-mono
     jetbrains-mono
     iosevka-bin
     adwaita-fonts

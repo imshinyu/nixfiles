@@ -9,7 +9,7 @@
   nix.gc = {
     automatic = true;
     dates = "daily";
-    options = "--delete-older-than 3d";
+    options = "--delete-older-than 2d";
   };
 
   powerManagement.cpuFreqGovernor = "performance";
@@ -20,14 +20,13 @@
     fish
   ];
   security.polkit.enable = true;
-  security.soteria.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.consoleMode = "max";
   boot.loader.systemd-boot.configurationLimit = 3;
   boot.loader.timeout = 3;
   boot.plymouth.enable = true;
-  boot.kernelParams = [ "quiet" "udev.log_level=3" ];
+  boot.kernelParams = [ "quiet" "splash" "udev.log_level=3" ];
   boot.blacklistedKernelModules = [ "pcspkr" ];
   boot.consoleLogLevel = 0;
   boot.initrd.verbose = false;

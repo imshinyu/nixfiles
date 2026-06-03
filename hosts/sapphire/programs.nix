@@ -2,7 +2,7 @@
 {
   imports =
     [
-      ../../programs/qbittorrent.nix
+      # ../../programs/qbittorrent.nix
       ../../profiles/general.nix
       ../../profiles/gaming.nix
       ../../profiles/android.nix
@@ -10,9 +10,5 @@
       ../../programs/spicetify.nix
     ];
   environment.systemPackages = with pkgs; [
-    mumble
-    upscayl
-    blender
-    jetbrains-toolbox
   ];
 }

@@ -8,7 +8,7 @@
       default_session = {
         # command = "${pkgs.tuigreet}/bin/tuigreet --user-menu --remember --remember-user-session --time --cmd ${pkgs.labwc}";
         # command = "${inputs.niri.packages.${pkgs.system}.niri}/bin/niri --config /var/lib/greetd/niri/config.kdl";
-        command = "${inputs.mango.packages.${pkgs.system}.mango}/bin/mango -s '${pkgs.quickshell}/bin/qs -p /var/lib/greetd/myGreet/shell.qml'";
+        command = "${inputs.labwc.packages.${pkgs.system}.labwc}/bin/labwc -S '${pkgs.noctalia-shell}/bin/qs -p /var/lib/greetd/myGreet/shell.qml'";
         user = "greeter";
       };
     };

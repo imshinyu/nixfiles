@@ -4,14 +4,6 @@ let
     system = "x86_64-linux";
     config.allowUnfree = true;
   };
-  nautilus-portal = pkgs.runCommandLocal "nautilus-portal" { } ''
-    mkdir -p $out/share/xdg-desktop-portal/portals
-    cat > $out/share/xdg-desktop-portal/portals/nautilus.portal <<EOF
-    [portal]
-    DBusName=org.gnome.Nautilus
-    Interfaces=org.freedesktop.impl.portal.FileChooser
-    EOF
-  '';
 in
 {
  
@@ -38,39 +30,26 @@ in
     binfmt = true;
   };
   environment.systemPackages = (with pkgs-unstable; [
-    river
-    (writeTextFile {
-      name = "river-session";
-      destination = "/share/wayland-sessions/river.desktop";
-      text = ''
-        [Desktop Entry]
-        Name=River
-        Comment=Dynamic tiling Wayland compositor
-        Exec=${pkgs-unstable.river}/bin/river
-        Type=Application
-      '';
-    })
     seanime
     spicetify-cli
     google-chrome
-    chromium
     yazi
     protonplus
     pywalfox-native
     equibop
+    librewolf
     (discord.override {
-      withOpenASAR = true;
+      # withOpenASAR = true;
       withEquicord = true;
     })
     
   ]) ++ (with pkgs; [
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-    inputs.elysia.packages.x86_64-linux.default
     inputs.helix.packages.${pkgs.stdenv.hostPlatform.system}.helix
-    inputs.niri-screentime.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.qtengine.packages.${pkgs.stdenv.hostPlatform.system}.default.qt5
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+    upscayl
+    dysk
     zed-editor-fhs
     mpv
     arrpc
@@ -79,13 +58,10 @@ in
     nixd
     vscode-langservers-extracted
     ente-auth
-    vlc
     protonvpn-gui
     jellyfin-rpc
-    selectdefaultapplication
     fzf
     feishin
-    hyprshot
     hyprpicker
     onlyoffice-desktopeditors
     lua-language-server
@@ -100,7 +76,6 @@ in
     wayfreeze
     wayland-logout
     yt-dlp
-    raylib
     obsidian
     obs-studio
     mpvpaper
@@ -111,7 +86,6 @@ in
     nwg-look
     darkly
     darkly-qt5
-    distrobox
     imagemagick
     krita
     matugen
@@ -135,26 +109,17 @@ in
     wf-recorder
     zip
     rar
-    swaynotificationcenter
     git
     foot
-    quickshell
+    noctalia-shell
     rofi
     youtube-music
     tsukimi
     trashy
 
-    gnome-system-monitor
-    gnome-calculator
-    gnome-keyring
-    seahorse
-    nautilus
-    nautilus-portal
     lxqt.pavucontrol-qt
 
-    nemo-with-extensions
     
-    kdePackages.elisa
     kdePackages.breeze
     kdePackages.breeze.qt5
     kdePackages.partitionmanager

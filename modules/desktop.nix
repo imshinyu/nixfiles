@@ -10,25 +10,11 @@
     # "${inputs.nixpkgs-unstable}/nixos/modules/services/desktop-managers/plasma6.nix"
   ];
   programs.niri.enable = true;
-  programs.mango.enable = true;
-  # programs.wayfire = {
-  #   enable = true;
-  #   plugins = with pkgs.wayfirePlugins; [
-  #     wcm
-  #     wayfire-plugins-extra
-  #     wf-shell
-  #   ];
-  # };
-  # programs.labwc.enable = true;
+  programs.labwc.enable = true;
   
   environment.pathsToLink = [ "/share/wayland-sessions" "/share/xsessions" ];
 
   environment.systemPackages = with pkgs; [
-    # waybar
-    # cosmic-ext-tweaks
-    # xfce.xfce4-whiskermenu-plugin
-    # xfce.xfce4-xkb-plugin
-    # cagebreak
   ];
   # services.desktopManager.budgie.enable = true;
   # environment.budgie.excludePackages = with pkgs; [
@@ -67,11 +53,11 @@
   #   lxqt.qterminal
   # ];
 
-  # services.desktopManager.plasma6.enable = true;
-  # environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  #   plasma-browser-integration
-  #   kwallet
-  #   konsole
-  #   kate
-  # ];
+  services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    plasma-browser-integration
+    kwallet
+    konsole
+    kate
+  ];
 }

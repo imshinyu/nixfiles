@@ -2,24 +2,20 @@
   description = "My super duper awesome flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     awww.url = "git+https://codeberg.org/LGFae/awww";
     helix.url = "github:helix-editor/helix/master";
     xboxdrv.url = "github:xboxdrv/xboxdrv";
     nixcord.url = "github:FlameFlag/nixcord";
     nix-index.url = "github:nix-community/nix-index-database";
-    millennium = {
-      url = "path:/home/shinyu/nixfiles/programs/millennium";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
+    # millennium = {
+    #   url = "path:/home/shinyu/nixfiles/programs/millennium";
+    #   inputs.nixpkgs.follows = "nixpkgs-unstable";
+    # };
     content-manager = {
       url = "path:/home/shinyu/nixfiles/programs/content-manager";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    zen-browser = {
-      url = "github:youwen5/zen-browser-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -35,9 +31,6 @@
     hyprism = {
       url = "path:/home/shinyu/nixfiles/programs/hyprism";
     };
-    niri-screentime = {
-      url = "github:probeldev/niri-screen-time";
-    };
     mango = {
       url = "github:DreamMaoMao/mango";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,10 +41,6 @@
     };
     hjem = {
       url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sls-steam = {
-      url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hjem-impure = {
